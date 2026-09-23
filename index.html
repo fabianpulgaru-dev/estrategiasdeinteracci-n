@@ -387,6 +387,24 @@
   .part p{ margin:0; font-size:.93rem; }
   .part .xlink{ align-self:flex-start; margin-top:8px; }
 
+  .ej{ margin-top:8px; display:grid; gap:5px; }
+  .ej .ej-lbl{ font-family:"IBM Plex Mono",monospace; font-size:.66rem; letter-spacing:.08em; text-transform:uppercase; font-weight:600; color:var(--gold-strong); }
+  .ej q{ quotes:"«" "»"; display:block; padding:6px 10px; border-left:2px solid var(--gold); background:var(--bg-raised); border-radius:0 6px 6px 0; font-size:.9rem; }
+  .ej .vs{ display:grid; gap:4px; }
+  .ej .vs span{ font-size:.82rem; color:var(--ink-faint); }
+  .ej .vs span q{ color:var(--ink); margin-top:2px; }
+  .ej .vs .no q{ border-left-color:var(--ink-faint); color:var(--ink-soft); text-decoration:line-through; text-decoration-color:color-mix(in srgb, var(--ink-faint) 60%, transparent); }
+  td ul.fr{ margin:0; padding-left:1em; display:grid; gap:4px; }
+  td ul.fr li::marker{ color:var(--gold-strong); }
+
+  .compass-card .v .check{ margin-top:10px; padding-top:10px; border-top:1px dashed var(--rule); }
+  .compass-card .v .check p{ margin:0 0 6px; font-weight:600; font-size:.92rem; }
+  .compass-card .v .check .pill-group{ flex-wrap:wrap; }
+  .eval-mode{ margin:0 0 14px; }
+  .result{ margin-top:18px; }
+  .result ul{ margin:6px 0 0; padding:0; list-style:none; display:grid; gap:8px; }
+  .result li{ display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+
   /* print: only the active panel */
   @media print{
     header.top, .routebar, footer, .actions, .seg, .no-print, .bridge{ display:none !important; }
@@ -479,7 +497,7 @@
         <span class="sq">R</span><span class="route-text"><b>Después</b><small>Registro y aprendo</small></span>
       </button>
       <button class="route-item" data-tab="terreno-brujula" role="tab" id="tab-terreno-brujula" aria-controls="terreno-brujula">
-        <span class="sq">✦</span><span class="route-text"><b>Mi brújula</b><small>Cuadro para llevar en el teléfono</small></span>
+        <span class="sq">✦</span><span class="route-text"><b>Mi brújula</b><small>Guía de bolsillo y autoevaluación</small></span>
       </button>
     </div>
   </nav>
@@ -548,7 +566,7 @@
           <tbody>
             <tr><td class="strong">Antes de salir a terreno</td><td>Revisa la ruta completa (a la izquierda / arriba) y repasa los pasos 01 a 03.</td></tr>
             <tr><td class="strong">Durante el trabajo de campo</td><td>Abre <b>En terreno</b>. Revisa el momento en que estás o abre Mi brújula, el cuadro para guardar como captura en tu teléfono.</td></tr>
-            <tr><td class="strong">Después de cada salida</td><td>Completa la ficha en <b>En terreno · Después</b> y luego marca el semáforo en <b>Revisión</b>.</td></tr>
+            <tr><td class="strong">Después de cada salida</td><td>Completa la ficha en <b>En terreno · Después</b> y autoevalúate en <b>Mi brújula</b>. La pestaña <b>Revisión</b> te ayuda a analizar lo registrado.</td></tr>
           </tbody>
         </table>
       </div>
@@ -802,11 +820,9 @@
       </div>
       <div class="box info"><span class="lbl">Distingue</span><p>Descripción: lo que viste o escuchaste. Interpretación: lo que crees que significa. Mantener esa diferencia te ayuda a revisar tus propias lecturas.</p></div>
 
-            <div class="bridge"><span class="lbl">En terreno</span><p>Primero completa la ficha en En terreno · Después. Esta sección te ayuda a leerla: qué registrar en cada dimensión y cómo evaluar tu recorrido por la ruta.</p><button type="button" class="xlink" data-goto="terreno-despues">Ir a la ficha de registro</button></div>
+            <div class="bridge"><span class="lbl">En terreno</span><p>Primero completa la ficha en En terreno · Después. Esta sección te ayuda a leerla: qué mirar en cada dimensión y cómo separar lo que viste de lo que interpretas.</p><button type="button" class="xlink" data-goto="terreno-despues">Ir a la ficha de registro</button></div>
 
-      <h3 class="h-sub">Semáforo de autoevaluación</h3>
-      <p class="lede">Marca cómo te fue en cada paso durante esta salida. No es una nota: es un mapa de qué revisar la próxima vez. (Tus marcas se guardan solo en este navegador.)</p>
-      <div id="semaforo-app"></div>
+      <div class="bridge"><span class="lbl">En terreno</span><p>La autoevaluación está en Mi brújula: marca cómo te fue en cada momento y la herramienta te indica qué pasos de la ruta conviene repasar.</p><button type="button" class="xlink" data-goto="terreno-brujula">Ir a Mi brújula</button></div>
       <div class="box info prompt" style="margin-top:16px;"><span class="lbl">Antes de seguir</span><p>¿Cuál fue el paso más difícil hoy? ¿Qué vas a intentar distinto en tu próxima salida?</p></div>
     </section>
 
@@ -835,7 +851,7 @@
           <table class="dtbl">
             <thead><tr><th>Momento</th><th>Qué hacer</th></tr></thead>
             <tbody>
-              <tr><td class="strong">Diálogo</td><td>En parejas o grupos pequeños, que completen la ficha de registro (En terreno · Después) sobre una interacción real de esa salida. Pueden copiarla o imprimirla para entregarla.</td></tr>
+              <tr><td class="strong">Diálogo</td><td>En parejas o grupos pequeños, que completen la ficha de registro (En terreno · Después) sobre una interacción real de esa salida y se autoevalúen en Mi brújula. Pueden copiar o imprimir ambas para entregarlas.</td></tr>
               <tr><td class="strong">Sintetiza</td><td>Pide que compartan un aprendizaje y un ajuste — no el relato completo, solo eso.</td></tr>
               <tr><td class="strong">Avanza</td><td>Cierra con una pregunta abierta: ¿qué paso de la brújula necesitas reforzar en la próxima salida?</td></tr>
             </tbody>
@@ -917,12 +933,30 @@
           <thead><tr><th>Si ocurre esto</th><th>Puedo hacer esto</th></tr></thead>
           <tbody>
             <tr><td class="strong">«Estoy ocupado/a.»</td><td>Reconoce la situación. Puedes preguntar si existe otro momento que le acomode más o agradecer y retirarte.</td></tr>
-            <tr><td class="strong">Me responde muy brevemente.</td><td>Cambia la forma de preguntar. Invita a describir una experiencia o pide un ejemplo concreto.</td></tr>
+            <tr><td class="strong">Me responde muy brevemente.</td><td>Cambia la forma de preguntar. Invita a describir una experiencia o pide un ejemplo concreto.
+              <div class="ej">
+                <span class="ej-lbl">Por ejemplo</span>
+                <div class="vs"><span class="no">En lugar de <q>¿Es difícil trabajar acá?</q></span><span>prueba <q>¿Cómo es un día de trabajo para usted, desde que llega hasta que se va?</q></span></div>
+                <div class="vs"><span class="no">En lugar de <q>¿Le gusta este barrio?</q></span><span>prueba <q>¿Me podría contar cómo era el barrio cuando llegó?</q></span></div>
+                <div class="vs"><span>Para pedir un ejemplo <q>¿Recuerda alguna vez en que haya pasado eso? ¿Qué ocurrió?</q></span></div>
+              </div></td></tr>
             <tr><td class="strong">«¿Y para qué quieren saber eso?»</td><td>Explica nuevamente, de manera sencilla, quién eres, qué estás haciendo y para qué quieres conversar.</td></tr>
             <tr><td class="strong">Hay un silencio.</td><td>No necesitas llenarlo inmediatamente. Da tiempo. Si continúa, reformula la pregunta o propone pasar a otro tema.</td></tr>
             <tr><td class="strong">No entendí.</td><td>No finjas que entendiste. Pregunta: «Cuando dice ____, ¿a qué se refiere?»</td></tr>
-            <tr><td class="strong">La conversación tomó otro rumbo.</td><td>Antes de redirigirla, escucha. Pregúntate si lo que apareció puede ayudarte a comprender mejor la situación.</td></tr>
-            <tr><td class="strong">«De eso prefiero no hablar.»</td><td>Respeta el límite. Puedes cambiar de tema o cerrar la conversación. No necesitas insistir.</td></tr>
+            <tr><td class="strong">La conversación tomó otro rumbo.</td><td>Antes de redirigirla, escucha. Pregúntate si lo que apareció puede ayudarte a comprender mejor la situación. Si necesitas volver al tema, conecta lo que la persona dijo con lo que te interesa conocer.
+              <div class="ej">
+                <span class="ej-lbl">Para volver al tema</span>
+                <q>Eso que me cuenta sobre ____ me ayuda a entender mucho. ¿Cómo se relaciona con ____?</q>
+                <q>Me gustaría volver un momento a algo que mencionó antes, sobre ____.</q>
+                <q>Antes de que se me olvide, quería preguntarle por ____, que conversábamos al principio.</q>
+              </div></td></tr>
+            <tr><td class="strong">«De eso prefiero no hablar.»</td><td>Respeta el límite. Puedes cambiar de tema o cerrar la conversación. No necesitas insistir.
+              <div class="ej">
+                <span class="ej-lbl">Por ejemplo</span>
+                <q>Claro, no hay problema. Gracias por decírmelo.</q>
+                <q>Por supuesto. ¿Le parece si conversamos sobre ____?</q>
+                <q>Entiendo. Si prefiere, lo dejamos hasta aquí. Muchas gracias por su tiempo.</q>
+              </div></td></tr>
             <tr><td class="strong">Me quedé en blanco.</td><td>Vuelve a algo que la persona ya dijo: «Antes mencionó que ____…» o «¿Y qué ocurrió después?»</td></tr>
             <tr><td class="strong">No sé cómo terminar.</td><td>Agradece el tiempo y, si corresponde, pregunta si sería posible volver a conversar en otro momento.</td></tr>
           </tbody>
@@ -971,20 +1005,35 @@
     <!-- ===================== EN TERRENO · MI BRÚJULA ===================== -->
     <section class="panel terreno" id="terreno-brujula" data-panel hidden role="tabpanel" aria-labelledby="tab-terreno-brujula" tabindex="0">
       <div class="t-head">
-        <div class="t-kicker">En terreno</div>
+        <div class="t-kicker">En terreno · Antes, durante y al volver</div>
         <h2>Mi brújula para interactuar en terreno</h2>
-        <p style="margin:0; opacity:.8;">Puedes guardar este cuadro como captura en tu teléfono.</p>
+        <p style="margin:0; opacity:.85;">Antes de salir, léela como guía y guárdala como captura en tu teléfono. Al volver, úsala para autoevaluarte: marca cómo te fue en cada momento.</p>
       </div>
       <div class="compass-card">
-        <div class="row"><div class="k"><b>Antes</b><span>Observo</span><i>paso 01</i></div><div class="v">¿Qué está ocurriendo? ¿Es un buen momento? ¿Cómo puedo acercarme?</div></div>
-        <div class="row"><div class="k"><b>Al comenzar</b><span>Explico</span><i>paso 02</i></div><div class="v">¿Quién soy? ¿Qué estoy haciendo? ¿Qué estoy pidiendo?</div></div>
-        <div class="row"><div class="k"><b>Durante</b><span>Escucho</span><i>pasos 03 y 04</i></div><div class="v">¿Qué me está diciendo? ¿Qué puedo recuperar? ¿Qué necesito comprender mejor?</div></div>
-        <div class="row"><div class="k"><b>Si algo cambia</b><span>Me adapto</span><i>paso 05 y límites</i></div><div class="v">¿Necesito esperar, reformular, preguntar, cambiar de tema, respetar un límite o cerrar?</div></div>
-        <div class="row"><div class="k"><b>Al terminar</b><span>Cierro y registro</span><i>paso 06</i></div><div class="v">Agradezco. Registro lo ocurrido. Pienso qué aprendí de la interacción.</div></div>
+        <div class="row"><div class="k"><b>Antes</b><span>Observo</span><i>paso 01</i></div><div class="v">¿Qué está ocurriendo? ¿Es un buen momento? ¿Cómo puedo acercarme?
+          <div class="check"><p>Observé la situación antes de acercarme y elegí un momento adecuado.</p><span class="pill-group" data-eval="antes" data-target="paso-01" data-name="Antes · Observo"><button type="button" class="pill" data-c="g">lo logré</button><button type="button" class="pill" data-c="a">en parte</button><button type="button" class="pill" data-c="r">me costó</button></span></div>
+        </div></div>
+        <div class="row"><div class="k"><b>Al comenzar</b><span>Explico</span><i>paso 02</i></div><div class="v">¿Quién soy? ¿Qué estoy haciendo? ¿Qué estoy pidiendo?
+          <div class="check"><p>Expliqué con claridad quién era, qué estaba haciendo y qué pedía.</p><span class="pill-group" data-eval="comenzar" data-target="paso-02" data-name="Al comenzar · Explico"><button type="button" class="pill" data-c="g">lo logré</button><button type="button" class="pill" data-c="a">en parte</button><button type="button" class="pill" data-c="r">me costó</button></span></div>
+        </div></div>
+        <div class="row"><div class="k"><b>Durante</b><span>Escucho</span><i>pasos 03 y 04</i></div><div class="v">¿Qué me está diciendo? ¿Qué puedo recuperar? ¿Qué necesito comprender mejor?
+          <div class="check"><p>Escuché, retomé lo que la persona decía y pedí aclarar lo que no entendí.</p><span class="pill-group" data-eval="durante" data-target="paso-04" data-name="Durante · Escucho"><button type="button" class="pill" data-c="g">lo logré</button><button type="button" class="pill" data-c="a">en parte</button><button type="button" class="pill" data-c="r">me costó</button></span></div>
+        </div></div>
+        <div class="row"><div class="k"><b>Si algo cambia</b><span>Me adapto</span><i>paso 05 y límites</i></div><div class="v">¿Necesito esperar, reformular, preguntar, cambiar de tema, respetar un límite o cerrar?
+          <div class="check"><p>Ajusté mi forma de participar cuando algo cambió y respeté los límites de la otra persona.</p><span class="pill-group" data-eval="cambia" data-target="paso-05" data-name="Si algo cambia · Me adapto"><button type="button" class="pill" data-c="g">lo logré</button><button type="button" class="pill" data-c="a">en parte</button><button type="button" class="pill" data-c="r">me costó</button></span></div>
+        </div></div>
+        <div class="row"><div class="k"><b>Al terminar</b><span>Cierro y registro</span><i>paso 06</i></div><div class="v">Agradezco. Registro lo ocurrido. Pienso qué aprendí de la interacción.
+          <div class="check"><p>Agradecí, cerré cuidando el vínculo y registré lo ocurrido.</p><span class="pill-group" data-eval="terminar" data-target="paso-06" data-name="Al terminar · Cierro y registro"><button type="button" class="pill" data-c="g">lo logré</button><button type="button" class="pill" data-c="a">en parte</button><button type="button" class="pill" data-c="r">me costó</button></span></div>
+        </div></div>
+      </div>
+      <div class="box info result" id="eval-result" hidden><span class="lbl">Para tu próxima salida</span><p id="eval-msg" style="margin:0;"></p><ul id="eval-list"></ul></div>
+      <p class="status no-print">Tus marcas se guardan solo en este navegador.</p>
+      <div class="actions">
+        <button type="button" class="btn" data-print>Imprimir o guardar PDF</button>
+        <button type="button" class="btn quiet" id="eval-reset">Borrar mis marcas</button>
       </div>
       <p class="principle">No necesito controlar la interacción. Necesito observar, escuchar y contar con recursos para decidir cómo actuar.</p>
       <p class="principle">Una interacción que no produjo la información esperada no es necesariamente una interacción fallida. También se aprende al reconocer qué ocurrió, cómo se interpretó y qué podría intentarse en una próxima oportunidad.</p>
-      <div class="actions"><button type="button" class="btn" data-print>Imprimir o guardar PDF</button></div>
     </section>
 
   </main>
@@ -1043,44 +1092,54 @@
   if(ALIAS[initial]) initial = ALIAS[initial];
   activate(TABS.indexOf(initial) !== -1 ? initial : 'inicio', { silent:true });
 
-  // ---- semáforo de autoevaluación ----
-  var STEPS = [
-    ['01','Observa'], ['02','Entra'], ['03','Vincúlate'],
-    ['04','Conversa'], ['05','Recalcula'], ['06','Cierra']
-  ];
-  var STORE_KEY = 'brujula-semaforo-v1';
-  var app = document.getElementById('semaforo-app');
-  var state = {};
-  try{ state = JSON.parse(localStorage.getItem(STORE_KEY) || '{}'); }catch(e){ state = {}; }
-
-  function save(){ try{ localStorage.setItem(STORE_KEY, JSON.stringify(state)); }catch(e){} }
-
-  function render(){
-    var html = '';
-    STEPS.forEach(function(s){
-      var code = s[0], name = s[1];
-      var val = state[code] || null;
-      html += '<div class="semaforo-row">';
-      html += '<span class="step-lbl">' + code + ' · ' + name + '</span>';
-      html += '<span class="pill-group" data-step="' + code + '">';
-      html += '<button type="button" class="pill" data-c="g"' + (val==='g' ? ' aria-pressed="true"' : '') + '>bien</button>';
-      html += '<button type="button" class="pill" data-c="a"' + (val==='a' ? ' aria-pressed="true"' : '') + '>a medias</button>';
-      html += '<button type="button" class="pill" data-c="r"' + (val==='r' ? ' aria-pressed="true"' : '') + '>costó</button>';
-      html += '</span></div>';
-    });
-    app.innerHTML = html;
-    Array.prototype.slice.call(app.querySelectorAll('.pill')).forEach(function(btn){
-      var code = btn.closest('.pill-group').getAttribute('data-step');
-      if(state[code] === btn.getAttribute('data-c')){ btn.classList.add('active'); }
-      btn.addEventListener('click', function(){
-        var c = btn.getAttribute('data-c');
-        state[code] = (state[code] === c) ? null : c;
-        save();
-        render();
+  // ---- autoevaluación en Mi brújula ----
+  var EVAL_KEY = 'brujula-autoeval-v1';
+  var ev = {};
+  try{ ev = JSON.parse(localStorage.getItem(EVAL_KEY) || '{}') || {}; }catch(e){ ev = {}; }
+  var groups = Array.prototype.slice.call(document.querySelectorAll('[data-eval]'));
+  var LBL = { g:'lo logré', a:'en parte', r:'me costó' };
+  function paintEval(){
+    groups.forEach(function(g){
+      var k = g.getAttribute('data-eval');
+      Array.prototype.slice.call(g.querySelectorAll('.pill')).forEach(function(p){
+        var on = ev[k] === p.getAttribute('data-c');
+        p.classList.toggle('active', on); p.setAttribute('aria-pressed', on ? 'true' : 'false');
       });
     });
+    var box = document.getElementById('eval-result'), list = document.getElementById('eval-list'), msg = document.getElementById('eval-msg');
+    var marked = groups.filter(function(g){ return ev[g.getAttribute('data-eval')]; });
+    if(!marked.length){ box.hidden = true; return; }
+    box.hidden = false;
+    var weak = marked.filter(function(g){ return ev[g.getAttribute('data-eval')] !== 'g'; });
+    list.innerHTML = '';
+    if(!weak.length){ msg.textContent = 'Marcaste todos los momentos como logrados. En tu próxima salida, intenta sostener lo que funcionó y registra por qué funcionó.'; return; }
+    msg.textContent = 'Estos momentos quedaron en parte o te costaron. Vuelve a la ruta antes de salir otra vez:';
+    weak.forEach(function(g){
+      var li = document.createElement('li');
+      var t = document.createElement('span'); t.textContent = g.getAttribute('data-name') + ' (' + LBL[ev[g.getAttribute('data-eval')]] + ')';
+      var b = document.createElement('button'); b.type = 'button'; b.className = 'xlink'; b.textContent = 'Repasar ' + g.closest('.row').querySelector('.k i').textContent;
+      b.addEventListener('click', function(){ activate(g.getAttribute('data-target')); });
+      li.appendChild(t); li.appendChild(b); list.appendChild(li);
+    });
   }
-  try{ render(); }catch(e){ app.textContent = 'No se pudo cargar el semáforo interactivo en este navegador.'; }
+  groups.forEach(function(g){
+    var k = g.getAttribute('data-eval');
+    Array.prototype.slice.call(g.querySelectorAll('.pill')).forEach(function(p){
+      p.addEventListener('click', function(){
+        var c = p.getAttribute('data-c');
+        ev[k] = (ev[k] === c) ? null : c;
+        try{ localStorage.setItem(EVAL_KEY, JSON.stringify(ev)); }catch(e){}
+        paintEval();
+      });
+    });
+  });
+  var bReset = document.getElementById('eval-reset');
+  if(bReset) bReset.addEventListener('click', function(){
+    if(!window.confirm('¿Borrar tus marcas de autoevaluación?')) return;
+    ev = {}; try{ localStorage.removeItem(EVAL_KEY); }catch(e){}
+    paintEval();
+  });
+  try{ paintEval(); }catch(e){}
 
   // ---- imprimir ----
   Array.prototype.slice.call(document.querySelectorAll('[data-print]')).forEach(function(b){
@@ -1114,6 +1173,11 @@
       out.push((el.value || '').trim() || '—');
       out.push('');
     });
+    var evl = groups.filter(function(g){ return ev[g.getAttribute('data-eval')]; });
+    if(evl.length){
+      out.push('MI BRÚJULA · AUTOEVALUACIÓN');
+      evl.forEach(function(g){ out.push(g.getAttribute('data-name') + ': ' + LBL[ev[g.getAttribute('data-eval')]]); });
+    }
     return out.join('\n');
   }
   var bCopy = document.getElementById('ficha-copiar');
@@ -1155,6 +1219,15 @@
     ['Profundizar', 'Recién mencionaste que ______. ¿Me podrías contar un poco más?', 'Recién mencionó que ______. ¿Me podría contar un poco más?'],
     ['Comprender', 'No entendí bien esa parte. ¿Me la podrías explicar?', 'No entendí bien esa parte. ¿Me la podría explicar?'],
     ['Pedir un ejemplo', '¿Recuerdas alguna situación en que haya ocurrido eso?', '¿Recuerda alguna situación en que haya ocurrido eso?'],
+    ['Disculparme', [
+        'Perdón, creo que te interrumpí. ¿Prefieres que vuelva en otro momento?',
+        'Disculpa, creo que mi pregunta no fue oportuna. Podemos dejarla de lado.',
+        'Perdón, creo que no me expliqué bien. Lo que quería preguntarte es…'
+      ], [
+        'Perdón, creo que lo/la interrumpí. ¿Prefiere que vuelva en otro momento?',
+        'Disculpe, creo que mi pregunta no fue oportuna. Podemos dejarla de lado.',
+        'Perdón, creo que no me expliqué bien. Lo que quería preguntarle es…'
+      ]],
     ['Cerrar', 'Muchas gracias por tu tiempo y por conversar conmigo.', 'Muchas gracias por su tiempo y por conversar conmigo.']
   ];
   var REG_KEY = 'brujula-registro-v1';
@@ -1165,7 +1238,12 @@
   function esc(t){ return t.replace(/&/g,'&amp;').replace(/</g,'&lt;'); }
   function renderBot(){
     var idx = reg === 'tu' ? 1 : 2, html = '';
-    FRASES.forEach(function(f){ html += '<tr><td class="strong">' + esc(f[0]) + '</td><td>«' + esc(f[idx]) + '»</td></tr>'; });
+    FRASES.forEach(function(f){
+      var v = f[idx], cell;
+      if(Array.isArray(v)){ cell = '<ul class="fr">' + v.map(function(x){ return '<li>«' + esc(x) + '»</li>'; }).join('') + '</ul>'; }
+      else { cell = '«' + esc(v) + '»'; }
+      html += '<tr><td class="strong">' + esc(f[0]) + '</td><td>' + cell + '</td></tr>';
+    });
     bot.innerHTML = html;
     segBtns.forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-reg') === reg ? 'true' : 'false'); });
   }
